@@ -9,14 +9,21 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-# ADD FOREIGN KEY
+# ADD FOREIGN KEY TO COMMENTS
 
-ActiveRecord::Schema.define(version: 2019_03_01_203419) do
+ActiveRecord::Schema.define(version: 2019_03_02_211059) do
 
-  create_table "Posts", force: :cascade do |t|
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
     t.string "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
